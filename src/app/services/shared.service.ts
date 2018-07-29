@@ -4,4 +4,15 @@ import { Injectable } from '@angular/core';
 export class SharedService {
 
   constructor() { }
+
+  public userData: any = [];
+
+  setUserData(user){
+    this.userData.push(user);
+  }
+
+  getUserData(){
+    return this.userData;
+  }
+
 }

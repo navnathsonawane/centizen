@@ -1,0 +1,13 @@
+.grid{
+    margin-top : 25px;
+}
+table, th, td {
+    border: 1px solid black;
+ }
+ td {
+    padding-right: 30px;
+    padding-left: 30px
+ }
+ table tr:nth-child(even) {
+    background-color: #b4e4e2;
+}

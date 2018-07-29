@@ -1,3 +1,42 @@
-<p>
-  add-user works!
-</p>
+<form [formGroup]="signupForm">
+  <!--- Email Block -->
+  <div class="form-group">
+    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+    <input type="text" class="form-control" id="inputEmail" formControlName="email" placeholder="Email">
+    <!-- Email error block -->
+    <div *ngIf="email.invalid && email.touched" class="text-danger">
+      <div *ngIf="email.errors?.required">
+        Email field can't be blank
+      </div>
+      <div *ngIf="email.errors?.pattern">
+        The email id doesn't seem right
+      </div>
+    </div>
+  </div>
+
+  <!-- Subscriptions Block -->
+  <div class="form-group">
+    <label for="select" class="col-lg-2 control-label">Subscriptions</label>
+    <select id="select" class="form-control" formControlName="subscription">
+        <option *ngFor = "let subscription of subscriptions" [value] = "subscription"> {{subscription}} </option>
+      </select>
+  </div>
+
+  <!--- Password Block -->
+  <div class="form-group">
+    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+    <input type="password" formControlName="password" id="inputPassword" class="form-control" placeholder="Password">
+    <!-- Password error block -->
+    <div *ngIf="(password.invalid && password.touched)" class="text-danger">
+      <div *ngIf="password.errors?.required">
+        Password field can't be blank
+      </div>
+      <div *ngIf="password.errors?.pattern">
+        Password must be 8 character long with at least one character and one special character
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" (click)="clearForm()">Reset</button>
+  <button type="submit" [disabled]="!signupForm.valid" class="btn btn-primary" (click)="addUser()">Submit</button>
+</form>

@@ -1,3 +1,17 @@
-<p>
-  display-user works!
-</p>
+<ng-container *ngIf="userData.length > 0">
+  <table align="center" class='grid'>
+    <tr>
+      <th>Id</th>
+      <th>Email</th>
+      <th>Type</th>
+    </tr>
+    <tr *ngFor='let user of userData;let i = index;'>
+      <td>{{i+1}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.subscription}}</td>
+    </tr>
+  </table>
+</ng-container>
+<ng-container *ngIf="userData.length == 0">
+  <h2> Please add some user to display in Grid.</h2>
+</ng-container>

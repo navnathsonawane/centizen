@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from './../services/shared.service';
 
 @Component({
   selector: 'display-user',
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayUserComponent implements OnInit {
 
-  constructor() { }
+  userData: any = [];
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
-    console.log("display");
+    this.userData = this.sharedService.getUserData();
   }
 
 }

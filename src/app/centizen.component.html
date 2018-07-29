@@ -2,9 +2,12 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <div class="container">
-    <a routerLink="/add" routerLinkActive="active">Add User</a>
-    <a routerLink="/display" routerLinkActive="active">Display</a>
+  <div class="container" >
+    <ng-container>
+      <!-- <ng-container *ngIf="url.indexOf('add') !== -1 || url.indexOf('display') !== -1"> -->
+      <a routerLink="/add" routerLinkActive="active">Add User</a>
+      <a routerLink="/display" routerLinkActive="active">Display</a>
+    </ng-container>
     <router-outlet></router-outlet>
   </div>
 </div>
