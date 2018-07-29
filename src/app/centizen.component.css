@@ -1,0 +1,17 @@
+h1{
+    color: white;
+    background: #2ECFC7;
+    border-radius: 8px;
+    margin-top: 0;
+    padding: 10px;
+}
+
+a{
+    padding: 10px;
+    background: #2ECFC7;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    border: black solid 2px;
+    margin-right: 20px;
+}
