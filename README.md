@@ -1,2 +1,2 @@
 # centizen
-Sample application POC for Centizen Inc
+Sample application POC for Exadatum
