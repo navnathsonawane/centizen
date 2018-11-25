@@ -7,12 +7,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RouterModule, Routes } from '@angular/router';
 import { SharedService } from './services/shared.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PopupModalComponent } from './modal/modal.component';
+import { FormsModule } from '@angular/forms';
 
 const route: Routes = [
-  { path: "", redirectTo:"/add", pathMatch: 'full' },
   { path: "add", component: AddUserComponent },
-  { path: "display", component: DisplayUserComponent },
-  { path: '**', component: PageNotFoundComponent }
+  { path: "display", component: DisplayUserComponent }
 ];
 
 @NgModule({
@@ -20,10 +20,12 @@ const route: Routes = [
     CentizenComponent,
     AddUserComponent,
     DisplayUserComponent,
-    PageNotFoundComponent    
+    PageNotFoundComponent,
+    PopupModalComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(route),
     ReactiveFormsModule
   ],

@@ -2,12 +2,41 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <div class="container" >
-    <ng-container>
-      <!-- <ng-container *ngIf="url.indexOf('add') !== -1 || url.indexOf('display') !== -1"> -->
+  <div class="container">
+    <ng-container *ngIf="url.indexOf('add') !== -1 || url.indexOf('display') !== -1">
       <a routerLink="/add" routerLinkActive="active">Add User</a>
       <a routerLink="/display" routerLinkActive="active">Display</a>
     </ng-container>
     <router-outlet></router-outlet>
   </div>
 </div>
+<div id="source">
+  <div class="sidebar-item" draggable="true" (dragstart)="drag($event)" id="drag">Element</div>
+</div>
+
+<div id="destination" (drop)="drop($event)" (dragover)="allowDrop($event)">
+  <div *ngFor="let obj of object">
+    <div class="sidebar-item" (click)="changeName(obj.text)" id="{{obj.id}}">{{obj.text}}</div>
+  </div>
+</div>
+
+<app-modal #modalAdmin>
+  <div class="app-modal-header" *ngIf="!isChangeName">
+    <strong>Enter name for the Element!</strong>
+  </div>
+  <div class="app-modal-header" *ngIf="isChangeName">
+    <strong>Enter new name for the Element!</strong>
+  </div>
+  <div class="line"></div>
+  <div class="app-modal-body">
+    <p *ngIf="isChangeName">Old name is-
+      <strong>{{oldText}}</strong>
+    </p>
+    <input type="text" [(ngModel)]="bodyText">
+    <p *ngIf="error">Please enter name!</p>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-primary" (click)="saveValue()">Save</button>
+    <button type="button" class="btn btn-primary" (click)="close()">Cancel</button>
+  </div>
+</app-modal>
